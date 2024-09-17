@@ -1,0 +1,23 @@
+html, body {
+  color: #999999;
+  display: block;
+  margin: 0 auto;
+  width: 100vh;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  height:500px;
+  width:500px;
+  background-color: rgb(238, 234, 228);
+  border:1px solid grey;
+  margin-bottom:50px;
+}
+
+.cell {
+  border: 1px solid black;
+  height: 48px;
+  width: 48px;
+}
