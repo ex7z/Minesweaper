@@ -84,7 +84,11 @@ function markEmptyCells() {
   for (let i = 0; i< CELLS.length; i++) {
     for (let j = 0; j < CELLS.length; j++) {
       let cur_cell = CELLS[i][j];
-      if (cur_cell.dataset.mineCount === '0') CELLS[i][j].style.backgroundColor = "white";
+      if (cur_cell.dataset.mineCount === '0') {
+        cur_cell.style.backgroundColor = "white";        
+        cur_cell.style.border = "1px inset #ccc";
+        
+      }
     }
   }
 }
