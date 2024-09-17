@@ -44,6 +44,7 @@ function addMine() {
 };
 // ---------------------------------------------------------------------------------------------------------------------->
 function markCell(cell) {
+  if (MARKED == 1) checkIsWin();
   if (cell.dataset.isMarked == "1") {
     // cell.style.backgroundColor = cell.dataset.isMine == "1" ? 'red' : '';
     cell.style.backgroundColor = '';
@@ -136,3 +137,13 @@ function revealAllMines() {
   }
 }
 // ---------------------------------------------------------------------------------------------------------------------->
+function checkIsWin() {
+  let isWin = true;
+  for (let i = 0; i< CELLS.length; i++) {
+    for (let j = 0; j < CELLS.length; j++) {
+      // To Do: Check if all mines are marked and all cells are revealed
+    }
+  }
+
+  if (isWin) alert('You Win!');  
+};
