@@ -37,7 +37,7 @@ function addMine() {
     let cell = CELLS[row][col];
     if (cell.dataset.isMine == "0") {
       cell.dataset.isMine = "1";
-      cell.style.backgroundColor = 'red '; // HIDE
+      // cell.style.backgroundColor = 'red '; // HIDE
       mines--;    
     }     
   }  
@@ -61,16 +61,20 @@ function cellClick(cell) {
   if (cell.dataset.isMarked == "1") return;
 
   if (cell.dataset.isMine == "1") {
-    cell.style.backgroundColor = 'red';
-    alert('Game Over');
-    CELLS = [];
-    board.innerHTML = '';
+    cell.style.backgroundColor = 'red';    
+    revealAllMines();
     return;
   }
 
   if (cell.dataset.mineCount !== '0') {
-    cell.innerText             = cell.dataset.mineCount;
+    cell.innerText             = cell.dataset.mineCount;    
     cell.style.backgroundColor = 'lightgreen';
+    cell.style.font            = 'bold 16px Arial';
+    cell.style.color           = 'black';
+    cell.style.display         = 'flex';
+    cell.style.justifyContent  = 'center';
+    cell.style.alignItems      = 'center';
+    console.log(style);
   } else {
     markEmptyCells();
   }  
@@ -120,4 +124,15 @@ function markNumberCells() {
     }
   }
 };
+// ---------------------------------------------------------------------------------------------------------------------->
+function revealAllMines() {
+  for (let i = 0; i< CELLS.length; i++) {
+    for (let j = 0; j < CELLS.length; j++) {
+      let cur_cell = CELLS[i][j];
+      if (cur_cell.dataset.isMine === '1') {
+        cur_cell.style.backgroundColor = 'red';
+      }
+    }
+  }
+}
 // ---------------------------------------------------------------------------------------------------------------------->
